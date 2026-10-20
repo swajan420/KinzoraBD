@@ -7,9 +7,9 @@
   This is a static demo: it does not save orders to a database or process payments.
 */
 
-const WHATSAPP_NUMBER = "8801XXXXXXXXX"; // TODO: replace with your real WhatsApp number
-const CONTACT_EMAIL = "your-email@example.com"; // TODO: replace
-const CONTACT_PHONE = "Add your number in script.js"; // TODO: replace
+const WHATSAPP_NUMBER = "8801912420580"; // TODO: replace with your real WhatsApp number
+const CONTACT_EMAIL = "swajanshah@gmail.com"; // TODO: replace
+const CONTACT_PHONE = "01912420580 in script.js"; // TODO: replace
 
 const PRODUCTS = [
   {
