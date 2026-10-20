@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#146c5a">
+  <meta name="description" content="Irfan Enterprise online shop — sample storefront.">
+  <title>Irfan Enterprise | Online Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement" data-i18n="announcement">Sample storefront — product names, photos and prices are examples.</div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Irfan Enterprise home">
+      <span class="brand-mark">IE</span>
+      <span class="brand-copy"><strong>Irfan Enterprise</strong><small data-i18n="tagline">Everyday care, made simple</small></span>
+    </a>
+    <div class="header-actions">
+      <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">বাংলা</button>
+      <a class="header-contact" href="#contact" data-i18n="contactUs">Contact us</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="heroEyebrow">WELCOME TO OUR ONLINE SHOP</span>
+        <h1 data-i18n="heroTitle">A little care goes a long way.</h1>
+        <p data-i18n="heroText">Explore our sample skincare collection. Message us to ask about products and delivery.</p>
+        <a class="primary-button" href="#products" data-i18n="shopNow">Explore products <span aria-hidden="true">→</span></a>
+        <p class="hero-note" data-i18n="sampleNote">Demo website: replace sample products and prices before publishing.</p>
+      </div>
+      <div class="hero-art" role="img" aria-label="Skincare products illustration">
+        <div class="sun"></div>
+        <div class="plant plant-one"></div><div class="plant plant-two"></div>
+        <div class="product-jar jar-one"><span>CARE</span></div>
+        <div class="product-jar jar-two"><span>GLOW</span></div>
+        <div class="product-bottle"><span>daily<br>cleanse</span></div>
+        <div class="hero-leaf leaf-one"></div><div class="hero-leaf leaf-two"></div>
+      </div>
+    </section>
+
+    <section class="trust-row" aria-label="Store information">
+      <div><span class="trust-icon">✓</span><span data-i18n="trustOne">Friendly service</span></div>
+      <div><span class="trust-icon">♡</span><span data-i18n="trustTwo">Carefully selected items</span></div>
+      <div><span class="trust-icon">↗</span><span data-i18n="trustThree">Order by WhatsApp</span></div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" data-i18n="collectionEyebrow">THE COLLECTION</span>
+          <h2 data-i18n="productsTitle">Shop our products</h2>
+          <p data-i18n="productsIntro">These are demonstration products. Confirm real prices and availability with the seller.</p>
+        </div>
+      </div>
+      <div class="shop-controls">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search products..." autocomplete="off">
+        </label>
+        <div id="categoryFilters" class="category-filters" aria-label="Filter products">
+          <button class="filter-button active" type="button" data-category="all" data-i18n="allProducts">All</button>
+          <button class="filter-button" type="button" data-category="cleanser" data-i18n="cleanser">Cleansers</button>
+          <button class="filter-button" type="button" data-category="moisturizer" data-i18n="moisturizer">Moisturizers</button>
+          <button class="filter-button" type="button" data-category="sunscreen" data-i18n="sunscreen">Sunscreen</button>
+        </div>
+      </div>
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden data-i18n="noProducts">No products match your search. Try another word.</p>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-badge">IE</div>
+      <div>
+        <span class="eyebrow" data-i18n="aboutEyebrow">A LITTLE ABOUT US</span>
+        <h2 data-i18n="aboutTitle">Welcome to Irfan Enterprise</h2>
+        <p data-i18n="aboutText">We’re building a simple and helpful online shopping experience. Contact us to confirm product details, current stock, and delivery options before ordering.</p>
+      </div>
+    </section>
+
+    <section id="delivery" class="delivery-section">
+      <div class="delivery-icon">📦</div>
+      <div>
+        <span class="eyebrow" data-i18n="deliveryEyebrow">DELIVERY INFORMATION</span>
+        <h2 data-i18n="deliveryTitle">Delivery made clear</h2>
+        <p data-i18n="deliveryText">Delivery coverage, charges and estimated time are not set on this demo site. Please ask us on WhatsApp before confirming an order.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div>
+        <span class="eyebrow" data-i18n="contactEyebrow">WE’RE HERE TO HELP</span>
+        <h2 data-i18n="contactTitle">Let’s talk</h2>
+        <p data-i18n="contactText">Have a question about a product? Send us a message and we’ll help you with the details.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-line"><span class="contact-icon">✉</span><div><small data-i18n="emailLabel">Email</small><strong id="emailDisplay">your-email@example.com</strong></div></div>
+        <div class="contact-line"><span class="contact-icon">☎</span><div><small data-i18n="phoneLabel">Phone / WhatsApp</small><strong id="phoneDisplay">Add your number in script.js</strong></div></div>
+        <a id="generalWhatsApp" class="primary-button full-button" href="#" target="_blank" rel="noopener" data-i18n="messageUs">Message us on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">IE</span><span class="brand-copy"><strong>Irfan Enterprise</strong><small data-i18n="tagline">Everyday care, made simple</small></span></a>
+    <p data-i18n="footerNote">Sample storefront for demonstration. Verify all product details before selling.</p>
+    <p>© <span id="year"></span> Irfan Enterprise</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
