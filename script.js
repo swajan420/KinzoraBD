@@ -1,15 +1,15 @@
 /*
   IRFAN ENTERPRISE — SAMPLE SHOP
   1) Change WHATSAPP_NUMBER below to your number with country code.
-     Bangladesh example format: 8801XXXXXXXXX (no +, spaces or dashes).
+     Bangladesh example format: 8801912420580 (no +, spaces or dashes).
   2) Replace sample products, descriptions and prices in PRODUCTS.
   3) Update CONTACT_EMAIL and CONTACT_PHONE.
   This is a static demo: it does not save orders to a database or process payments.
 */
 
-const WHATSAPP_NUMBER = "8801912420580"; // TODO: replace with your real WhatsApp number
-const CONTACT_EMAIL = "swajanshah@gmail.com"; // TODO: replace
-const CONTACT_PHONE = "01912420580 in script.js"; // TODO: replace
+const WHATSAPP_NUMBER ="8801912420580"; // TODO: replace with your real WhatsApp number
+const CONTACT_EMAIL ="swajanshah@gmail.com"; // TODO: replace
+const CONTACT_PHONE ="01912420580 in script.js"; // TODO: replace
 
 const PRODUCTS = [
   {
