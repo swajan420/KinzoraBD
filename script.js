@@ -1,5 +1,5 @@
 /*
-  IRFAN ENTERPRISE — SAMPLE SHOP
+  KinboShop — SAMPLE SHOP
   1) Change WHATSAPP_NUMBER below to your number with country code.
      Bangladesh example format: 8801912420580 (no +, spaces or dashes).
   2) Replace sample products, descriptions and prices in PRODUCTS.
@@ -10,6 +10,8 @@
 const WHATSAPP_NUMBER ="8801912420580"; // TODO: replace with your real WhatsApp number
 const CONTACT_EMAIL ="swajanshah@gmail.com"; // TODO: replace
 const CONTACT_PHONE ="01912420580"; // TODO: replace
+
+
 
 const PRODUCTS = [
   {
@@ -55,6 +57,7 @@ const PRODUCTS = [
     price: 720, color: "#e5eddf", pack: "tube", packColor: "#f7f7e9", label: "SUN CREAM"
   }
 ];
+
 
 const translations = {
   en: {
@@ -147,6 +150,8 @@ function renderProducts() {
     const target = whatsappReady() ? 'target="_blank" rel="noopener"' : '';
     const disabledNote = whatsappReady() ? "" : (currentLanguage === "bn" ? " (আগে নম্বর যোগ করুন)" : " (add number first)");
     return `
+
+    
       <article class="product-card">
         <div class="product-image" style="--product-bg:${product.color};--pack-color:${product.packColor}">
           <span class="sample-label">${currentLanguage === "bn" ? "নমুনা পণ্য" : "SAMPLE ITEM"}</span>
@@ -217,8 +222,8 @@ document.getElementById("emailDisplay").textContent = CONTACT_EMAIL;
 document.getElementById("phoneDisplay").textContent = CONTACT_PHONE;
 const generalWhatsApp = document.getElementById("generalWhatsApp");
 generalWhatsApp.href = makeWhatsAppLink(currentLanguage === "bn"
-  ? "আসসালামু আলাইকুম Irfan Enterprise! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
-  : "Hello Irfan Enterprise! I'd like to ask about your products and delivery.");
+  ? "আসসালামু আলাইকুম KinboShop! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
+  : "Hello KinboShop! I'd like to ask about your products and delivery.");
 if (!whatsappReady()) {
   generalWhatsApp.addEventListener("click", event => {
     event.preventDefault();
