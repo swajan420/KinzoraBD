@@ -1,5 +1,5 @@
 /*
-  KinboShop — SAMPLE SHOP
+  KinzoraBD — MULTI-CATEGORY STORE
   1) Change WHATSAPP_NUMBER below to your number with country code.
      Bangladesh example format: 8801912420580 (no +, spaces or dashes).
   2) Replace sample products, descriptions and prices in PRODUCTS.
@@ -7,102 +7,104 @@
   This is a static demo: it does not save orders to a database or process payments.
 */
 
-const WHATSAPP_NUMBER ="8801912420580"; // TODO: replace with your real WhatsApp number
-const CONTACT_EMAIL ="swajanshah@gmail.com"; // TODO: replace
-const CONTACT_PHONE ="01912420580"; // TODO: replace
-
-
+const WHATSAPP_NUMBER = "8801912420580"; // আপনার আসল WhatsApp নম্বর দিন
+const CONTACT_EMAIL = "support@kinzorabd.com"; 
+const CONTACT_PHONE = "01912420580"; 
 
 const PRODUCTS = [
   {
-    id: 1, category: "cleanser", name: "Daily Gentle Cleanser",
-    bnName: "ডেইলি জেন্টল ক্লেনজার",
-    description: "A sample gentle cleanser for a fresh-feeling routine.",
-    bnDescription: "সতেজ অনুভূতির দৈনন্দিন রুটিনের জন্য নমুনা ক্লেনজার।",
-    price: 450, color: "#e3eddf", pack: "tube", packColor: "#f7f4e9", label: "DAILY CLEANSE"
+    id: 1, category: "electronics", name: "Wireless Bluetooth Earbuds",
+    bnName: "ওয়্যারলেস ব্লুটুথ ইয়ারবাডস",
+    description: "High bass, touch control, and long-lasting battery backup.",
+    bnDescription: "হাই বেস, টাচ কন্ট্রোল এবং দীর্ঘস্থায়ী ব্যাটারি ব্যাকআপযুক্ত ইয়ারবাডস।",
+    price: 1550, color: "#e3eddf", pack: "jar", packColor: "#f7f4e9", label: "TRENDING"
   },
   {
-    id: 2, category: "moisturizer", name: "Hydrating Face Cream",
-    bnName: "হাইড্রেটিং ফেস ক্রিম",
-    description: "A sample face cream for a simple skincare routine.",
-    bnDescription: "সহজ স্কিনকেয়ার রুটিনের জন্য নমুনা ফেস ক্রিম।",
-    price: 590, color: "#f4e0d4", pack: "jar", packColor: "#fff8ef", label: "HYDRATE"
+    id: 2, category: "fashion", name: "Men's Casual Cotton Shirt",
+    bnName: "পুরুষদের ক্যাজুয়াল কটন শার্ট",
+    description: "Comfortable and premium quality cotton fabric for daily wear.",
+    bnDescription: "দৈনিক ব্যবহারের জন্য আরামদায়ক এবং প্রিমিয়াম মানের কটন শার্ট।",
+    price: 850, color: "#f4e0d4", pack: "tube", packColor: "#fff8ef", label: "NEW"
   },
   {
-    id: 3, category: "sunscreen", name: "Daily Sun Lotion",
-    bnName: "ডেইলি সান লোশন",
-    description: "A sample sunscreen listing. Check the real product label before use.",
-    bnDescription: "নমুনা সানস্ক্রিন তালিকা। ব্যবহারের আগে আসল পণ্যের লেবেল যাচাই করুন।",
-    price: 650, color: "#e6e9d7", pack: "tube", packColor: "#eaf0d9", label: "SUN LOTION"
+    id: 3, category: "home", name: "Non-Stick Cookware Set (5 Pcs)",
+    bnName: "নন-স্টিক কুকওয়্যার সেট (৫ পিস)",
+    description: "Durable and scratch-resistant coating for safe cooking.",
+    bnDescription: "নিরাপদ রান্নার জন্য টেকসই এবং স্ক্যাচ-প্রতিরোধী কোটিং যুক্ত সেট।",
+    price: 2800, color: "#e6e9d7", pack: "jar", packColor: "#eaf0d9", label: "BEST SELLER"
   },
   {
-    id: 4, category: "cleanser", name: "Soft Foam Face Wash",
-    bnName: "সফট ফোম ফেস ওয়াশ",
-    description: "A sample face wash product card. Brand and stock are not verified.",
-    bnDescription: "নমুনা ফেসওয়াশ কার্ড। ব্র্যান্ড ও স্টক যাচাই করা হয়নি।",
-    price: 380, color: "#dfeaf0", pack: "tube", packColor: "#f4f8f8", label: "SOFT FOAM"
+    id: 4, category: "healthcare", name: "Natural Aloe Vera Face Gel",
+    bnName: "ন্যাচারাল অ্যালোভেরা ফেস জেল",
+    description: "Hydrates and nourishes skin for a glowing and fresh look.",
+    bnDescription: "ত্বকের উজ্জ্বলতা ও সতেজতার জন্য ময়েশ্চারাইজিং ফেস জেল।",
+    price: 450, color: "#dfeaf0", pack: "tube", packColor: "#f4f8f8", label: "POPULAR"
   },
   {
-    id: 5, category: "moisturizer", name: "Daily Body Lotion",
-    bnName: "ডেইলি বডি লোশন",
-    description: "A sample body lotion listing for demonstration only.",
-    bnDescription: "শুধু প্রদর্শনের জন্য নমুনা বডি লোশন তালিকা।",
-    price: 520, color: "#f1e3d2", pack: "bottle", packColor: "#fff5e9", label: "BODY LOTION"
-  },
-  {
-    id: 6, category: "sunscreen", name: "Lightweight Sun Cream",
-    bnName: "লাইটওয়েট সান ক্রিম",
-    description: "Example listing only. Confirm SPF, ingredients and authenticity with the seller.",
-    bnDescription: "শুধু উদাহরণ। SPF, উপাদান ও আসল পণ্য কি না বিক্রেতার কাছে নিশ্চিত করুন।",
-    price: 720, color: "#e5eddf", pack: "tube", packColor: "#f7f7e9", label: "SUN CREAM"
+    id: 5, category: "groceries", name: "Organic Flower Honey (500g)",
+    bnName: "অর্গানিক ফুলের মধু (৫০০ গ্রাম)",
+    description: "100% pure and natural raw honey collected from local sources.",
+    bnDescription: "স্থানীয় উৎস থেকে সংগৃহীত ১০০% খাঁটি ও প্রাকৃতিক মধু।",
+    price: 600, color: "#f1e3d2", pack: "bottle", packColor: "#fff5e9", label: "PURE"
   }
 ];
 
-
 const translations = {
   en: {
-    announcement: "Sample storefront — product names, photos and prices are examples.",
-    tagline: "Everyday care, made simple", contactUs: "Contact us",
-    heroEyebrow: "WELCOME TO OUR ONLINE SHOP", heroTitle: "A little care goes a long way.",
-    heroText: "Explore our sample skincare collection. Message us to ask about products and delivery.",
+    announcement: "Welcome to KinzoraBD — Explore our wide range of products!",
+    tagline: "Quality products, right at your doorstep", contactUs: "Contact us",
+    heroEyebrow: "WELCOME TO OUR STORE", heroTitle: "Everything you need, all in one place.",
+    heroText: "Explore our multi-category product collection. Message us on WhatsApp to order directly.",
     shopNow: "Explore products", sampleNote: "Demo website: replace sample products and prices before publishing.",
-    trustOne: "Friendly service", trustTwo: "Carefully selected items", trustThree: "Order by WhatsApp",
-    collectionEyebrow: "THE COLLECTION", productsTitle: "Shop our products",
-    productsIntro: "These are demonstration products. Confirm real prices and availability with the seller.",
-    searchPlaceholder: "Search products...", allProducts: "All", cleanser: "Cleansers",
-    moisturizer: "Moisturizers", sunscreen: "Sunscreen", noProducts: "No products match your search. Try another word.",
-    aboutEyebrow: "A LITTLE ABOUT US", aboutTitle: "Welcome to Irfan Enterprise",
-    aboutText: "We’re building a simple and helpful online shopping experience. Contact us to confirm product details, current stock, and delivery options before ordering.",
-    deliveryEyebrow: "DELIVERY INFORMATION", deliveryTitle: "Delivery made clear",
-    deliveryText: "Delivery coverage, charges and estimated time are not set on this demo site. Please ask us on WhatsApp before confirming an order.",
-    contactEyebrow: "WE’RE HERE TO HELP", contactTitle: "Let’s talk",
-    contactText: "Have a question about a product? Send us a message and we’ll help you with the details.",
+    trustOne: "100% Genuine Products", trustTwo: "Fast & Reliable Delivery", trustThree: "Easy WhatsApp Order",
+    collectionEyebrow: "OUR PRODUCTS", productsTitle: "Shop by Categories",
+    productsIntro: "Browse through our quality product catalog and find what you need.",
+    searchPlaceholder: "Search products...", allProducts: "All Products", 
+    electronics: "Electronics", fashion: "Fashion", homeLiving: "Home & Living", 
+    healthCare: "Health & Care", groceries: "Groceries", 
+    noProducts: "No products match your search. Try another term.",
+    aboutEyebrow: "ABOUT US", aboutTitle: "Welcome to KinzoraBD",
+    aboutText: "We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.",
+    deliveryEyebrow: "DELIVERY DETAILS", deliveryTitle: "Nationwide Shipping",
+    deliveryText: "We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.",
+    contactEyebrow: "CONTACT US", contactTitle: "Get in Touch",
+    contactText: "Have questions about a product or bulk orders? Reach out to us directly!",
     emailLabel: "Email", phoneLabel: "Phone / WhatsApp", messageUs: "Message us on WhatsApp",
-    footerNote: "Sample storefront for demonstration. Verify all product details before selling.",
-    orderNow: "Order on WhatsApp", examplePrice: "example price", productCategories: { cleanser: "Cleanser", moisturizer: "Moisturizer", sunscreen: "Sunscreen" },
-    orderMessage: "Hello Irfan Enterprise! I’m interested in: "
+    footerNote: "Official storefront for KinzoraBD. Verify all product details before ordering.",
+    orderNow: "Order on WhatsApp", examplePrice: "price", 
+    productCategories: { 
+      electronics: "Electronics", fashion: "Fashion", home: "Home & Living", 
+      healthcare: "Health & Care", groceries: "Groceries" 
+    },
+    orderMessage: "Hello KinzoraBD! I’m interested in: "
   },
   bn: {
-    announcement: "নমুনা অনলাইন শপ — পণ্যের নাম, ছবি ও দাম উদাহরণ হিসেবে দেওয়া হয়েছে।",
-    tagline: "প্রতিদিনের যত্ন, সহজভাবে", contactUs: "যোগাযোগ",
-    heroEyebrow: "আমাদের অনলাইন শপে স্বাগতম", heroTitle: "যত্নের ছোট অভ্যাস, বড় উপকার।",
-    heroText: "আমাদের নমুনা স্কিনকেয়ার পণ্য দেখুন। পণ্য ও ডেলিভারি সম্পর্কে জানতে মেসেজ করুন।",
+    announcement: "স্বাগতম KinzoraBD-তে — আমাদের প্রডাক্টগুলো দেখে নিন!",
+    tagline: "গুণগত মানের পণ্য, আপনার দোরগোড়ায়", contactUs: "যোগাযোগ",
+    heroEyebrow: "আমাদের দোকানে স্বাগতম", heroTitle: "আপনার প্রয়োজনীয় সবকিছু এক ছাদের নিচে।",
+    heroText: "আমাদের বিভিন্ন ক্যাটাগরির পণ্য সংগ্রহ দেখুন। সরাসরি অর্ডার করতে হোয়াটসঅ্যাপে মেসেজ করুন।",
     shopNow: "পণ্য দেখুন", sampleNote: "ডেমো ওয়েবসাইট: প্রকাশের আগে নমুনা পণ্য ও দাম পরিবর্তন করুন।",
-    trustOne: "বন্ধুত্বপূর্ণ সেবা", trustTwo: "বাছাই করা পণ্য", trustThree: "WhatsApp-এ অর্ডার",
-    collectionEyebrow: "আমাদের সংগ্রহ", productsTitle: "আমাদের পণ্য দেখুন",
-    productsIntro: "এগুলো প্রদর্শনের জন্য নমুনা পণ্য। আসল দাম ও স্টক বিক্রেতার কাছে নিশ্চিত করুন।",
-    searchPlaceholder: "পণ্য খুঁজুন...", allProducts: "সব", cleanser: "ক্লেনজার",
-    moisturizer: "ময়েশ্চারাইজার", sunscreen: "সানস্ক্রিন", noProducts: "আপনার খোঁজের সঙ্গে মেলে এমন পণ্য নেই। অন্য শব্দ দিয়ে চেষ্টা করুন।",
-    aboutEyebrow: "আমাদের সম্পর্কে", aboutTitle: "Irfan Enterprise-এ স্বাগতম",
-    aboutText: "আমরা সহজ ও সহায়ক অনলাইন কেনাকাটার অভিজ্ঞতা তৈরি করছি। অর্ডারের আগে পণ্যের বিবরণ, বর্তমান স্টক ও ডেলিভারির তথ্য নিশ্চিত করতে যোগাযোগ করুন।",
-    deliveryEyebrow: "ডেলিভারি তথ্য", deliveryTitle: "ডেলিভারি সম্পর্কে জেনে নিন",
-    deliveryText: "এই ডেমো সাইটে ডেলিভারি এলাকা, চার্জ ও সম্ভাব্য সময় নির্ধারণ করা হয়নি। অর্ডার নিশ্চিত করার আগে WhatsApp-এ জেনে নিন।",
-    contactEyebrow: "আমরা সাহায্য করতে প্রস্তুত", contactTitle: "কথা বলুন",
-    contactText: "পণ্য সম্পর্কে কোনো প্রশ্ন আছে? মেসেজ করুন, আমরা বিস্তারিত জানাতে সাহায্য করব।",
-    emailLabel: "ইমেইল", phoneLabel: "ফোন / WhatsApp", messageUs: "WhatsApp-এ মেসেজ করুন",
-    footerNote: "প্রদর্শনের জন্য নমুনা দোকান। বিক্রির আগে সব পণ্যের তথ্য যাচাই করুন।",
-    orderNow: "WhatsApp-এ অর্ডার", examplePrice: "নমুনা দাম", productCategories: { cleanser: "ক্লেনজার", moisturizer: "ময়েশ্চারাইজার", sunscreen: "সানস্ক্রিন" },
-    orderMessage: "আসসালামু আলাইকুম Irfan Enterprise! আমি এই পণ্যটি নিতে আগ্রহী: "
+    trustOne: "১০০% আসল পণ্য", trustTwo: "দ্রুত ও নির্ভরযোগ্য ডেলিভারি", trustThree: "সহজেই হোয়াটসঅ্যাপে অর্ডার",
+    collectionEyebrow: "আমাদের সংগ্রহ", productsTitle: "ক্যাটাগরি অনুযায়ী কেনাকাটা করুন",
+    productsIntro: "আমাদের মানসম্মত ক্যাটালগ থেকে আপনার প্রয়োজনীয় পণ্যটি বেছে নিন।",
+    searchPlaceholder: "পণ্য খুঁজুন...", allProducts: "সকল পণ্য", 
+    electronics: "ইলেকট্রনিক্স", fashion: "ফ্যাশন", homeLiving: "হোম অ্যান্ড লিভিং", 
+    healthCare: "হেলথ কেয়ার", groceries: "গ্রোসারিজ", 
+    noProducts: "আপনার অনুসন্ধানের সাথে কোনো পণ্য মিলছে না। অন্য শব্দ দিয়ে চেষ্টা করুন।",
+    aboutEyebrow: "আমাদের সম্পর্কে", aboutTitle: "KinzoraBD-তে আপনাকে স্বাগতম",
+    aboutText: "আমরা বিভিন্ন ক্যাটাগরির সেরা মানের পণ্য এবং দ্রুত কাস্টমার সাপোর্ট প্রদানে প্রতিশ্রুতিবদ্ধ।",
+    deliveryEyebrow: "ডেলিভারি তথ্য", deliveryTitle: "দেশব্যাপী শিপিং",
+    deliveryText: "আমরা সারা বাংলাদেশে ডেলিভারি করি। আপনার এলাকার ডেলিভারি চার্জ জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন।",
+    contactEyebrow: "যোগাযোগ করুন", contactTitle: "কথা বলুন আমাদের সাথে",
+    contactText: "পণ্য বা পাইকারি অর্ডার সম্পর্কে কোনো প্রশ্ন আছে? সরাসরি আমাদের সাথে যোগাযোগ করুন!",
+    emailLabel: "ইমেইল", phoneLabel: "ফোন / হোয়াটসঅ্যাপ", messageUs: "হোয়াটসঅ্যাপে মেসেজ করুন",
+    footerNote: "KinzoraBD-এর অফিশিয়াল স্টোরফ্রন্ট। অর্ডার করার আগে পণ্যের বিবরণ যাচাই করুন।",
+    orderNow: "WhatsApp-এ অর্ডার", examplePrice: "মূল্য", 
+    productCategories: { 
+      electronics: "ইলেকট্রনিক্স", fashion: "ফ্যাশন", home: "হোম অ্যান্ড লিভিং", 
+      healthcare: "হেলথ কেয়ার", groceries: "গ্রোসারিজ" 
+    },
+    orderMessage: "আসসালামু আলাইকুম KinzoraBD! আমি এই পণ্যটি নিতে আগ্রহী: "
   }
 };
 
@@ -145,17 +147,15 @@ function renderProducts() {
     const description = currentLanguage === "bn" ? product.bnDescription : product.description;
     const category = t.productCategories[product.category] || product.category;
     const packClass = product.pack === "jar" ? "jar" : product.pack === "tube" ? "tube" : "";
-    const message = `${t.orderMessage}${name}. ${currentLanguage === "bn" ? "নমুনা দাম" : "Example price"}: ${money(product.price)}. ${currentLanguage === "bn" ? "দয়া করে স্টক ও ডেলিভারি চার্জ নিশ্চিত করুন।" : "Please confirm stock and delivery charge."}`;
+    const message = `${t.orderMessage}${name}. মূল্য: ${money(product.price)}. দয়া করে স্টক ও ডেলিভারি চার্জ নিশ্চিত করুন।`;
     const href = makeWhatsAppLink(message);
     const target = whatsappReady() ? 'target="_blank" rel="noopener"' : '';
     const disabledNote = whatsappReady() ? "" : (currentLanguage === "bn" ? " (আগে নম্বর যোগ করুন)" : " (add number first)");
     return `
-
-    
       <article class="product-card">
         <div class="product-image" style="--product-bg:${product.color};--pack-color:${product.packColor}">
-          <span class="sample-label">${currentLanguage === "bn" ? "নমুনা পণ্য" : "SAMPLE ITEM"}</span>
-          <div class="pack ${packClass}">${product.label}</div>
+          <span class="sample-label">KinzoraBD</span>
+          <div class="pack ${packClass}">KB</div>
         </div>
         <div class="product-info">
           <span class="product-category">${category}</span>
@@ -163,7 +163,6 @@ function renderProducts() {
           <p>${escapeHTML(description)}</p>
           <div class="product-bottom">
             <span class="product-price">${money(product.price)}</span>
-            <span class="example-price">${t.examplePrice}</span>
           </div>
           <a class="order-button" href="${href}" ${target} data-order-id="${product.id}">${t.orderNow}${disabledNote}</a>
         </div>
@@ -176,8 +175,8 @@ function renderProducts() {
       link.addEventListener("click", event => {
         event.preventDefault();
         alert(currentLanguage === "bn"
-          ? "script.js ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর দিন। বাংলাদেশের নম্বর 880 দিয়ে শুরু করুন; + বা স্পেস দেবেন না।"
-          : "Add your WhatsApp number to WHATSAPP_NUMBER in script.js. For Bangladesh, start with 880 and do not include + or spaces.");
+          ? "script.js ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর দিন।"
+          : "Add your WhatsApp number to WHATSAPP_NUMBER in script.js.");
       });
     }
   });
@@ -222,8 +221,8 @@ document.getElementById("emailDisplay").textContent = CONTACT_EMAIL;
 document.getElementById("phoneDisplay").textContent = CONTACT_PHONE;
 const generalWhatsApp = document.getElementById("generalWhatsApp");
 generalWhatsApp.href = makeWhatsAppLink(currentLanguage === "bn"
-  ? "আসসালামু আলাইকুম KinboShop! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
-  : "Hello KinboShop! I'd like to ask about your products and delivery.");
+  ? "আসসালামু আলাইকুম KinzoraBD! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
+  : "Hello KinzoraBD! I'd like to ask about your products and delivery.");
 if (!whatsappReady()) {
   generalWhatsApp.addEventListener("click", event => {
     event.preventDefault();
@@ -234,3 +233,4 @@ if (!whatsappReady()) {
 }
 
 renderProducts();
+      
