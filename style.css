@@ -1,155 +1,269 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+// --- KINZORABD CONFIGURATION ---
+const WHATSAPP_NUMBER = "8801XXXXXXXXX"; // এখানে আপনার আসল হোয়াটসঅ্যাপ নম্বর দিন (যেমন: 8801700000000)
+const CONTACT_EMAIL = "support@kinzorabd.com";
+const CONTACT_PHONE = "+880 1700-000000";
 
-:root {
-  --green: #146c5a;
-  --green-dark: #0b493d;
-  --green-soft: #e9f3ed;
-  --cream: #fbf8f1;
-  --peach: #f4d7c5;
-  --ink: #202b27;
-  --muted: #69756f;
-  --line: #e5e9e3;
-  --white: #fff;
-  --radius: 22px;
-  --shadow: 0 14px 35px rgba(23, 69, 54, .09);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: #fff; font-family: "DM Sans", "Noto Sans Bengali", sans-serif; line-height: 1.6; }
-button, input { font: inherit; }
-a { color: inherit; text-decoration: none; }
-.announcement { text-align: center; background: var(--green-dark); color: #fff; padding: 8px 14px; font-size: .78rem; letter-spacing: .02em; }
-.site-header { width: min(1160px, calc(100% - 36px)); margin: auto; min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.brand { display: inline-flex; align-items: center; gap: 11px; min-width: 0; }
-.brand-mark { width: 45px; height: 45px; display: grid; place-items: center; flex: 0 0 auto; background: var(--green); color: #fff; border-radius: 15px 15px 15px 5px; font-weight: 700; letter-spacing: -.05em; }
-.brand-copy { display: flex; flex-direction: column; line-height: 1.25; }
-.brand-copy strong { font-size: 1rem; }
-.brand-copy small { margin-top: 4px; color: var(--muted); font-size: .72rem; }
-.header-actions { display: flex; align-items: center; gap: 14px; }
-.language-toggle { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 13px; cursor: pointer; color: var(--green-dark); font-weight: 700; }
-.header-contact { font-size: .9rem; font-weight: 700; }
-.hero { width: min(1160px, calc(100% - 36px)); margin: 10px auto 28px; border-radius: 30px; overflow: hidden; background: var(--cream); min-height: 405px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; }
-.hero-content { padding: clamp(28px, 5vw, 65px); }
-.eyebrow { color: var(--green); font-size: .72rem; letter-spacing: .14em; font-weight: 700; }
-h1, h2, p { margin-top: 0; }
-h1 { font-size: clamp(2.1rem, 5vw, 4.1rem); line-height: 1.07; letter-spacing: -.055em; max-width: 570px; margin: 14px 0 18px; }
-h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -.04em; line-height: 1.15; margin: 10px 0 12px; }
-.hero-content > p:not(.hero-note) { color: var(--muted); max-width: 460px; }
-.primary-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: var(--green); color: #fff; padding: 13px 19px; border-radius: 999px; font-weight: 700; border: 0; cursor: pointer; transition: background .2s, transform .2s; }
-.primary-button:hover { background: var(--green-dark); transform: translateY(-1px); }
-.hero-note { margin: 14px 0 0; font-size: .75rem; color: #7a837d; }
-.hero-art { min-height: 405px; height: 100%; position: relative; overflow: hidden; background: linear-gradient(145deg, #e6eee2, #f4dfce); }
-.sun { position: absolute; width: 210px; height: 210px; border-radius: 50%; background: #f6cda9; top: 42px; right: 15%; }
-.product-jar, .product-bottle { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 20px 30px #5e5e4c22; font-size: .72rem; letter-spacing: .12em; font-weight: 700; }
-.product-jar { bottom: 68px; width: 128px; height: 102px; border-radius: 16px 16px 23px 23px; }
-.product-jar:before { content: ""; position: absolute; height: 17px; left: -3px; right: -3px; top: -12px; border-radius: 8px; background: #d4bda5; }
-.jar-one { right: 43%; background: #fff9ee; color: var(--green); transform: rotate(-7deg); }
-.jar-two { right: 13%; bottom: 85px; background: #e7bfa9; color: #643f32; transform: rotate(7deg); }
-.product-bottle { right: 28%; bottom: 166px; height: 170px; width: 76px; border-radius: 18px 18px 13px 13px; background: #f8f5e9; color: var(--green); }
-.product-bottle:before { content: ""; position: absolute; width: 32px; height: 28px; top: -23px; background: #9eaa8e; border-radius: 7px 7px 2px 2px; }
-.plant { position: absolute; width: 4px; background: #5e8068; bottom: 0; height: 170px; right: 8%; transform: rotate(12deg); transform-origin: bottom; }
-.plant:before, .plant:after { content: ""; position: absolute; width: 55px; height: 25px; background: #71927a; border-radius: 100% 0 100% 0; }
-.plant:before { top: 30px; right: 0; transform: rotate(-25deg); }
-.plant:after { top: 70px; left: -48px; transform: rotate(35deg) scaleX(-1); }
-.plant-two { right: 2%; height: 125px; transform: rotate(-15deg); }
-.hero-leaf { position: absolute; width: 60px; height: 25px; border-radius: 100% 0 100% 0; background: #a8b89c; }
-.leaf-one { left: 8%; top: 19%; transform: rotate(25deg); }
-.leaf-two { left: 15%; top: 28%; transform: rotate(65deg); background: #c3cdb6; }
-.trust-row { width: min(1060px, calc(100% - 36px)); margin: 0 auto 66px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.trust-row > div { display: flex; align-items: center; justify-content: center; gap: 9px; color: #4c5b53; font-size: .86rem; padding: 14px 8px; }
-.trust-icon { display: grid; place-items: center; width: 28px; height: 28px; background: var(--green-soft); color: var(--green); border-radius: 50%; font-weight: 700; }
-.products-section, .contact-section { width: min(1160px, calc(100% - 36px)); margin: 0 auto 80px; }
-.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 25px; }
-.section-heading p { color: var(--muted); margin-bottom: 0; max-width: 650px; }
-.shop-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 23px; flex-wrap: wrap; }
-.search-box { min-height: 46px; display: flex; align-items: center; gap: 9px; border: 1px solid var(--line); border-radius: 999px; padding: 0 15px; min-width: min(100%, 260px); flex: 1; max-width: 370px; color: var(--muted); }
-.search-box span { font-size: 1.45rem; }
-.search-box input { border: 0; outline: 0; min-width: 0; width: 100%; background: transparent; color: var(--ink); }
-.category-filters { display: flex; gap: 8px; overflow-x: auto; max-width: 100%; padding: 2px 0 6px; }
-.filter-button { white-space: nowrap; border: 1px solid var(--line); background: #fff; color: #59665f; padding: 9px 14px; border-radius: 999px; cursor: pointer; font-size: .83rem; }
-.filter-button.active, .filter-button:hover { background: var(--green); color: #fff; border-color: var(--green); }
-.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 19px; }
-.product-card { border: 1px solid #edf0eb; border-radius: 20px; overflow: hidden; background: #fff; transition: transform .2s, box-shadow .2s; }
-.product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.product-image { width: 100%; aspect-ratio: 1 / 1; display: grid; place-items: center; position: relative; overflow: hidden; background: var(--product-bg, #edf2e9); }
-.product-image:before { content: ""; position: absolute; width: 125px; height: 125px; border-radius: 50%; background: #ffffff72; }
-.product-image .pack { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; text-align: center; width: 78px; height: 105px; padding: 8px; background: var(--pack-color, #f6f2e5); border: 1px solid #d5d6c8; color: #526a58; border-radius: 12px 12px 18px 18px; box-shadow: 0 14px 18px #263c3020; font-size: .62rem; font-weight: 700; letter-spacing: .07em; }
-.product-image .pack.tube { width: 64px; height: 118px; border-radius: 13px 13px 19px 19px; clip-path: polygon(8% 0, 92% 0, 100% 85%, 85% 100%, 15% 100%, 0 85%); }
-.product-image .pack.jar { width: 105px; height: 78px; border-radius: 13px 13px 20px 20px; }
-.product-image .pack.jar:before { content: ""; position: absolute; top: -8px; left: -2px; right: -2px; height: 13px; border-radius: 6px; background: #c6b79d; }
-.product-image .sample-label { position: absolute; top: 12px; left: 12px; z-index: 2; background: #ffffffd9; color: #6b6f63; font-size: .62rem; border-radius: 99px; padding: 4px 8px; }
-.product-info { padding: 15px; }
-.product-category { color: var(--green); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
-.product-info h3 { font-size: 1rem; margin: 6px 0 5px; line-height: 1.35; }
-.product-info p { color: var(--muted); font-size: .81rem; min-height: 40px; margin-bottom: 13px; }
-.product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
-.product-price { font-size: 1.05rem; font-weight: 700; }
-.example-price { color: #8a8d83; font-size: .65rem; }
-.order-button { width: 100%; text-align: center; border: 0; display: flex; justify-content: center; background: #e8f4ec; color: var(--green-dark); border-radius: 12px; padding: 10px 8px; font-size: .82rem; font-weight: 700; cursor: pointer; }
-.order-button:hover { background: var(--green); color: #fff; }
-.empty-state { color: var(--muted); padding: 30px 0; text-align: center; }
-.about-section, .delivery-section { width: min(1000px, calc(100% - 36px)); margin: 0 auto 24px; display: flex; align-items: center; gap: 25px; padding: 30px; border-radius: var(--radius); background: var(--green-soft); }
-.about-badge { display: grid; place-items: center; flex: 0 0 92px; height: 92px; border-radius: 28px 28px 28px 8px; background: var(--green); color: #fff; font-size: 1.7rem; font-weight: 700; }
-.about-section p, .delivery-section p, .contact-section p { color: var(--muted); margin-bottom: 0; max-width: 700px; }
-.delivery-section { background: #fbf3e8; margin-bottom: 80px; }
-.delivery-icon { display: grid; place-items: center; flex: 0 0 92px; height: 92px; border-radius: 50%; background: #fff; font-size: 2.2rem; }
-.contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.contact-card { border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: var(--shadow); }
-.contact-line { display: flex; align-items: center; gap: 13px; margin-bottom: 20px; }
-.contact-icon { display: grid; place-items: center; width: 42px; height: 42px; background: var(--green-soft); color: var(--green); border-radius: 13px; font-size: 1.2rem; }
-.contact-line div { display: flex; flex-direction: column; min-width: 0; }
-.contact-line small { color: var(--muted); }
-.contact-line strong { font-size: .9rem; overflow-wrap: anywhere; }
-.full-button { width: 100%; }
-.site-footer { background: #f7f8f4; padding: 28px max(18px, calc((100% - 1160px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-.site-footer p { margin: 0; font-size: .76rem; color: var(--muted); }
-.footer-brand .brand-mark { width: 36px; height: 36px; border-radius: 11px 11px 11px 4px; font-size: .85rem; }
-.footer-brand .brand-copy strong { font-size: .86rem; }
-.footer-brand .brand-copy small { font-size: .65rem; }
+// --- MULTI-CATEGORY PRODUCTS LIST ---
+const PRODUCTS = [
+  {
+    id: "prod_01",
+    name: "Wireless Bluetooth Earbuds",
+    banglaName: "ওয়্যারলেস ব্লুটুথ ইয়ারবাডস",
+    category: "electronics",
+    price: 1550,
+    description: "High bass, touch control, and long-lasting battery backup.",
+    packType: "jar",
+    packColor: "#e6eee2",
+    label: "Trending"
+  },
+  {
+    id: "prod_02",
+    name: "Men's Casual Cotton Shirt",
+    banglaName: "পুরুষদের ক্যাজুয়াল কটন শার্ট",
+    category: "fashion",
+    price: 850,
+    description: "Comfortable and premium quality cotton fabric for daily wear.",
+    packType: "tube",
+    packColor: "#f4d7c5",
+    label: "New"
+  },
+  {
+    id: "prod_03",
+    name: "Non-Stick Cookware Set (5 Pcs)",
+    banglaName: "নন-স্টিক কুকওয়্যার সেট (৫ পিস)",
+    category: "home",
+    price: 2800,
+    description: "Durable and scratch-resistant coating for safe cooking.",
+    packType: "jar",
+    packColor: "#fbf8f1",
+    label: "Best Seller"
+  },
+  {
+    id: "prod_04",
+    name: "Natural Aloe Vera Face Gel",
+    banglaName: "ন্যাচারাল অ্যালোভেরা ফেস জেল",
+    category: "healthcare",
+    price: 450,
+    description: "Hydrates and nourishes skin for a glowing and fresh look.",
+    packType: "tube",
+    packColor: "#e9f3ed",
+    label: "Popular"
+  },
+  {
+    id: "prod_05",
+    name: "Organic Flower Honey (500g)",
+    banglaName: "অর্গানিক ফুলের মধু (৫০০ গ্রাম)",
+    category: "groceries",
+    price: 600,
+    description: "100% pure and natural raw honey collected from local sources.",
+    packType: "jar",
+    packColor: "#f6cda9",
+    label: "Pure"
+  }
+];
 
-@media (max-width: 900px) {
-  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero { grid-template-columns: 1fr .8fr; }
-  .hero-art { min-height: 350px; }
-  .product-bottle { right: 24%; }
-  .jar-one { right: 39%; }
-  .contact-section { gap: 25px; }
+// --- TRANSLATIONS (EN / BN) ---
+const translations = {
+  en: {
+    announcement: "Welcome to KinzoraBD — Explore our wide range of products!",
+    tagline: "Quality products, right at your doorstep",
+    contactUs: "Contact us",
+    heroEyebrow: "WELCOME TO OUR STORE",
+    heroTitle: "Everything you need, all in one place.",
+    heroText: "Explore our multi-category product collection. Message us on WhatsApp to order directly.",
+    shopNow: "Explore products",
+    trustOne: "100% Genuine Products",
+    trustTwo: "Fast & Reliable Delivery",
+    trustThree: "Easy WhatsApp Order",
+    collectionEyebrow: "OUR PRODUCTS",
+    productsTitle: "Shop by Categories",
+    productsIntro: "Browse through our quality product catalog and find what you need.",
+    searchPlaceholder: "Search products...",
+    allProducts: "All Products",
+    electronics: "Electronics",
+    fashion: "Fashion",
+    homeLiving: "Home & Living",
+    healthCare: "Health & Care",
+    groceries: "Groceries",
+    noProducts: "No products match your search. Try another term.",
+    aboutEyebrow: "ABOUT US",
+    aboutTitle: "Welcome to KinzoraBD",
+    aboutText: "We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.",
+    deliveryEyebrow: "DELIVERY DETAILS",
+    deliveryTitle: "Nationwide Shipping",
+    deliveryText: "We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.",
+    contactEyebrow: "CONTACT US",
+    contactTitle: "Get in Touch",
+    contactText: "Have questions about a product or bulk orders? Reach out to us directly!",
+    emailLabel: "Email",
+    phoneLabel: "Phone / WhatsApp",
+    messageUs: "Message us on WhatsApp",
+    footerNote: "Official storefront for KinzoraBD.",
+    orderOnWhatsApp: "Order on WhatsApp",
+    currency: "Tk "
+  },
+  bn: {
+    announcement: "স্বাগতম KinzoraBD-তে — আমাদের প্রডাক্টগুলো দেখে নিন!",
+    tagline: "গুণগত মানের পণ্য, আপনার দোরগোড়ায়",
+    contactUs: "যোগাযোগ",
+    heroEyebrow: "আমাদের দোকানে স্বাগতম",
+    heroTitle: "আপনার প্রয়োজনীয় সবকিছু এক ছাদের নিচে।",
+    heroText: "আমাদের বিভিন্ন ক্যাটাগরির পণ্য সংগ্রহ দেখুন। সরাসরি অর্ডার করতে হোয়াটসঅ্যাপে মেসেজ করুন।",
+    shopNow: "পণ্য দেখুন",
+    trustOne: "১০০% আসল পণ্য",
+    trustTwo: "দ্রুত ও নির্ভরযোগ্য ডেলিভারি",
+    trustThree: "সহজেই হোয়াটসঅ্যাপে অর্ডার",
+    collectionEyebrow: "আমাদের সংগ্রহ",
+    productsTitle: "ক্যাটাগরি অনুযায়ী কেনাকাটা করুন",
+    productsIntro: "আমাদের মানসম্মত ক্যাটালগ থেকে আপনার প্রয়োজনীয় পণ্যটি বেছে নিন।",
+    searchPlaceholder: "পণ্য খুঁজুন...",
+    allProducts: "সকল পণ্য",
+    electronics: "ইলেকট্রনিক্স",
+    fashion: "ফ্যাশন",
+    homeLiving: "হোম অ্যান্ড লিভিং",
+    healthCare: "হেলথ কেয়ার",
+    groceries: "গ্রোসারিজ",
+    noProducts: "আপনার অনুসন্ধানের সাথে কোনো পণ্য মিলছে না। অন্য শব্দ দিয়ে চেষ্টা করুন।",
+    aboutEyebrow: "আমাদের সম্পর্কে",
+    aboutTitle: "KinzoraBD-তে আপনাকে স্বাগতম",
+    aboutText: "আমরা বিভিন্ন ক্যাটাগরির সেরা মানের পণ্য এবং দ্রুত কাস্টমার সাপোর্ট প্রদানে প্রতিশ্রুতিবদ্ধ।",
+    deliveryEyebrow: "ডেলিভারি তথ্য",
+    deliveryTitle: "দেশব্যাপী শিপিং",
+    deliveryText: "আমরা সারা বাংলাদেশে ডেলিভারি করি। আপনার এলাকার ডেলিভারি চার্জ জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন।",
+    contactEyebrow: "যোগাযোগ করুন",
+    contactTitle: "কথা বলুন আমাদের সাথে",
+    contactText: "পণ্য বা পাইকারি অর্ডার সম্পর্কে কোনো প্রশ্ন আছে? সরাসরি আমাদের সাথে যোগাযোগ করুন!",
+    emailLabel: "ইমেইল",
+    phoneLabel: "ফোন / হোয়াটসঅ্যাপ",
+    messageUs: "হোয়াটসঅ্যাপে মেসেজ করুন",
+    footerNote: "KinzoraBD-এর অফিশিয়াল স্টোরফ্রন্ট।",
+    orderOnWhatsApp: "হোয়াটসঅ্যাপে অর্ডার করুন",
+    currency: "টাকা "
+  }
+};
+
+let currentLang = 'en';
+
+// --- DOM ELEMENTS ---
+const searchInput = document.getElementById('searchInput');
+const productGrid = document.getElementById('productGrid');
+const emptyState = document.getElementById('emptyState');
+const categoryFilters = document.getElementById('categoryFilters');
+const languageToggle = document.getElementById('languageToggle');
+const yearSpan = document.getElementById('year');
+const emailDisplay = document.getElementById('emailDisplay');
+const phoneDisplay = document.getElementById('phoneDisplay');
+const generalWhatsApp = document.getElementById('generalWhatsApp');
+
+let activeCategory = 'all';
+let searchQuery = '';
+
+// --- INITIALIZE APP ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  if (emailDisplay) emailDisplay.textContent = CONTACT_EMAIL;
+  if (phoneDisplay) phoneDisplay.textContent = CONTACT_PHONE;
+  
+  updateWhatsAppLinks();
+  renderProducts();
+  setupEventListeners();
+});
+
+// --- RENDER PRODUCTS ---
+function renderProducts() {
+  productGrid.innerHTML = '';
+
+  const filtered = PRODUCTS.filter(prod => {
+    const matchesCategory = activeCategory === 'all' || prod.category === activeCategory;
+    const q = searchQuery.toLowerCase();
+    const matchesSearch = prod.name.toLowerCase().includes(q) || prod.banglaName.toLowerCase().includes(q);
+    return matchesCategory && matchesSearch;
+  });
+
+  if (filtered.length === 0) {
+    emptyState.hidden = false;
+    return;
+  }
+  emptyState.hidden = true;
+
+  filtered.forEach(prod => {
+    const card = document.createElement('article');
+    card.className = 'product-card';
+
+    const displayName = currentLang === 'bn' ? prod.banglaName : prod.name;
+    const currencyText = translations[currentLang].currency;
+    const btnText = translations[currentLang].orderOnWhatsApp;
+
+    const whatsappMessage = encodeURIComponent(`Hello KinzoraBD, I want to order this product:\nName: ${prod.name} (${prod.banglaName})\nPrice: ${prod.price} Tk`);
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+    card.innerHTML = `
+      <div class="product-image" style="--product-bg: ${prod.packColor}">
+        <span class="sample-label">${prod.label}</span>
+        <div class="pack ${prod.packType}" style="--pack-color: ${prod.packColor}"><span>KB</span></div>
+      </div>
+      <div class="product-info">
+        <span class="product-category">${prod.category}</span>
+        <h3>${displayName}</h3>
+        <p>${prod.description}</p>
+        <div class="product-bottom">
+          <span class="product-price">${currencyText}${prod.price}</span>
+        </div>
+        <a class="order-button" href="${whatsappLink}" target="_blank" rel="noopener">${btnText}</a>
+      </div>
+    `;
+    productGrid.appendChild(card);
+  });
 }
-@media (max-width: 620px) {
-  .site-header { min-height: 70px; width: calc(100% - 28px); }
-  .brand-mark { width: 39px; height: 39px; border-radius: 13px 13px 13px 4px; }
-  .brand-copy strong { font-size: .88rem; }
-  .brand-copy small { font-size: .65rem; }
-  .header-actions { gap: 9px; }
-  .header-contact { display: none; }
-  .language-toggle { padding: 7px 11px; font-size: .82rem; }
-  .hero { width: calc(100% - 24px); grid-template-columns: 1fr; margin-top: 4px; border-radius: 24px; }
-  .hero-content { padding: 30px 24px 18px; }
-  h1 { font-size: 2.45rem; }
-  .hero-art { min-height: 250px; }
-  .sun { width: 150px; height: 150px; top: 20px; right: 23%; }
-  .product-jar { bottom: 34px; transform: scale(.82); }
-  .jar-one { right: 43%; }
-  .jar-two { right: 12%; bottom: 44px; }
-  .product-bottle { right: 29%; bottom: 102px; transform: scale(.82); transform-origin: bottom; }
-  .trust-row { width: calc(100% - 24px); margin-bottom: 45px; grid-template-columns: 1fr; gap: 0; }
-  .trust-row > div { justify-content: flex-start; padding: 7px 10px; }
-  .products-section, .contact-section { width: calc(100% - 28px); margin-bottom: 55px; }
-  .section-heading { margin-bottom: 20px; }
-  .shop-controls { align-items: stretch; }
-  .search-box { max-width: none; }
-  .category-filters { width: 100%; }
-  .product-grid { gap: 12px; }
-  .product-info { padding: 11px; }
-  .product-info h3 { font-size: .91rem; }
-  .product-info p { font-size: .75rem; min-height: 52px; }
-  .product-image .pack { transform: scale(.86); }
-  .product-price { font-size: .95rem; }
-  .about-section, .delivery-section { width: calc(100% - 28px); padding: 22px; gap: 16px; align-items: flex-start; }
-  .about-badge, .delivery-icon { flex-basis: 55px; height: 55px; border-radius: 17px; font-size: 1.3rem; }
-  .delivery-icon { border-radius: 50%; font-size: 1.55rem; }
-  .contact-section { grid-template-columns: 1fr; gap: 20px; }
-  .contact-card { padding: 18px; }
-  .site-footer { align-items: flex-start; flex-direction: column; gap: 13px; }
+
+// --- EVENT LISTENERS SETUP ---
+function setupEventListeners() {
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+  }
+
+  if (categoryFilters) {
+    categoryFilters.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-button');
+      if (!btn) return;
+      categoryFilters.querySelectorAll('.filter-button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.getAttribute('data-category');
+      renderProducts();
+    });
+  }
+
+  if (languageToggle) {
+    languageToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      languageToggle.textContent = currentLang === 'en' ? 'বাংলা' : 'English';
+      updateTexts();
+      renderProducts();
+    });
+  }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+// --- UPDATE UI TEXTS FOR LANGUAGE ---
+function updateTexts() {
+  const t = translations[currentLang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key]) el.placeholder = t[key];
+  });
+}
+
+// --- UPDATE WHATSAPP LINKS ---
+function updateWhatsAppLinks() {
+  const generalMsg = encodeURIComponent("Hello KinzoraBD, I want to know more about your products and services.");
+  if (generalWhatsApp) {
+    generalWhatsApp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${generalMsg}`;
+  }
+  }
+  
