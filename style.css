@@ -1,269 +1,71 @@
-// --- KINZORABD CONFIGURATION ---
-const WHATSAPP_NUMBER = "8801XXXXXXXXX"; // এখানে আপনার আসল হোয়াটসঅ্যাপ নম্বর দিন (যেমন: 8801700000000)
-const CONTACT_EMAIL = "support@kinzorabd.com";
-const CONTACT_PHONE = "+880 1700-000000";
-
-// --- MULTI-CATEGORY PRODUCTS LIST ---
-const PRODUCTS = [
-  {
-    id: "prod_01",
-    name: "Wireless Bluetooth Earbuds",
-    banglaName: "ওয়্যারলেস ব্লুটুথ ইয়ারবাডস",
-    category: "electronics",
-    price: 1550,
-    description: "High bass, touch control, and long-lasting battery backup.",
-    packType: "jar",
-    packColor: "#e6eee2",
-    label: "Trending"
-  },
-  {
-    id: "prod_02",
-    name: "Men's Casual Cotton Shirt",
-    banglaName: "পুরুষদের ক্যাজুয়াল কটন শার্ট",
-    category: "fashion",
-    price: 850,
-    description: "Comfortable and premium quality cotton fabric for daily wear.",
-    packType: "tube",
-    packColor: "#f4d7c5",
-    label: "New"
-  },
-  {
-    id: "prod_03",
-    name: "Non-Stick Cookware Set (5 Pcs)",
-    banglaName: "নন-স্টিক কুকওয়্যার সেট (৫ পিস)",
-    category: "home",
-    price: 2800,
-    description: "Durable and scratch-resistant coating for safe cooking.",
-    packType: "jar",
-    packColor: "#fbf8f1",
-    label: "Best Seller"
-  },
-  {
-    id: "prod_04",
-    name: "Natural Aloe Vera Face Gel",
-    banglaName: "ন্যাচারাল অ্যালোভেরা ফেস জেল",
-    category: "healthcare",
-    price: 450,
-    description: "Hydrates and nourishes skin for a glowing and fresh look.",
-    packType: "tube",
-    packColor: "#e9f3ed",
-    label: "Popular"
-  },
-  {
-    id: "prod_05",
-    name: "Organic Flower Honey (500g)",
-    banglaName: "অর্গানিক ফুলের মধু (৫০০ গ্রাম)",
-    category: "groceries",
-    price: 600,
-    description: "100% pure and natural raw honey collected from local sources.",
-    packType: "jar",
-    packColor: "#f6cda9",
-    label: "Pure"
-  }
-];
-
-// --- TRANSLATIONS (EN / BN) ---
-const translations = {
-  en: {
-    announcement: "Welcome to KinzoraBD — Explore our wide range of products!",
-    tagline: "Quality products, right at your doorstep",
-    contactUs: "Contact us",
-    heroEyebrow: "WELCOME TO OUR STORE",
-    heroTitle: "Everything you need, all in one place.",
-    heroText: "Explore our multi-category product collection. Message us on WhatsApp to order directly.",
-    shopNow: "Explore products",
-    trustOne: "100% Genuine Products",
-    trustTwo: "Fast & Reliable Delivery",
-    trustThree: "Easy WhatsApp Order",
-    collectionEyebrow: "OUR PRODUCTS",
-    productsTitle: "Shop by Categories",
-    productsIntro: "Browse through our quality product catalog and find what you need.",
-    searchPlaceholder: "Search products...",
-    allProducts: "All Products",
-    electronics: "Electronics",
-    fashion: "Fashion",
-    homeLiving: "Home & Living",
-    healthCare: "Health & Care",
-    groceries: "Groceries",
-    noProducts: "No products match your search. Try another term.",
-    aboutEyebrow: "ABOUT US",
-    aboutTitle: "Welcome to KinzoraBD",
-    aboutText: "We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.",
-    deliveryEyebrow: "DELIVERY DETAILS",
-    deliveryTitle: "Nationwide Shipping",
-    deliveryText: "We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.",
-    contactEyebrow: "CONTACT US",
-    contactTitle: "Get in Touch",
-    contactText: "Have questions about a product or bulk orders? Reach out to us directly!",
-    emailLabel: "Email",
-    phoneLabel: "Phone / WhatsApp",
-    messageUs: "Message us on WhatsApp",
-    footerNote: "Official storefront for KinzoraBD.",
-    orderOnWhatsApp: "Order on WhatsApp",
-    currency: "Tk "
-  },
-  bn: {
-    announcement: "স্বাগতম KinzoraBD-তে — আমাদের প্রডাক্টগুলো দেখে নিন!",
-    tagline: "গুণগত মানের পণ্য, আপনার দোরগোড়ায়",
-    contactUs: "যোগাযোগ",
-    heroEyebrow: "আমাদের দোকানে স্বাগতম",
-    heroTitle: "আপনার প্রয়োজনীয় সবকিছু এক ছাদের নিচে।",
-    heroText: "আমাদের বিভিন্ন ক্যাটাগরির পণ্য সংগ্রহ দেখুন। সরাসরি অর্ডার করতে হোয়াটসঅ্যাপে মেসেজ করুন।",
-    shopNow: "পণ্য দেখুন",
-    trustOne: "১০০% আসল পণ্য",
-    trustTwo: "দ্রুত ও নির্ভরযোগ্য ডেলিভারি",
-    trustThree: "সহজেই হোয়াটসঅ্যাপে অর্ডার",
-    collectionEyebrow: "আমাদের সংগ্রহ",
-    productsTitle: "ক্যাটাগরি অনুযায়ী কেনাকাটা করুন",
-    productsIntro: "আমাদের মানসম্মত ক্যাটালগ থেকে আপনার প্রয়োজনীয় পণ্যটি বেছে নিন।",
-    searchPlaceholder: "পণ্য খুঁজুন...",
-    allProducts: "সকল পণ্য",
-    electronics: "ইলেকট্রনিক্স",
-    fashion: "ফ্যাশন",
-    homeLiving: "হোম অ্যান্ড লিভিং",
-    healthCare: "হেলথ কেয়ার",
-    groceries: "গ্রোসারিজ",
-    noProducts: "আপনার অনুসন্ধানের সাথে কোনো পণ্য মিলছে না। অন্য শব্দ দিয়ে চেষ্টা করুন।",
-    aboutEyebrow: "আমাদের সম্পর্কে",
-    aboutTitle: "KinzoraBD-তে আপনাকে স্বাগতম",
-    aboutText: "আমরা বিভিন্ন ক্যাটাগরির সেরা মানের পণ্য এবং দ্রুত কাস্টমার সাপোর্ট প্রদানে প্রতিশ্রুতিবদ্ধ।",
-    deliveryEyebrow: "ডেলিভারি তথ্য",
-    deliveryTitle: "দেশব্যাপী শিপিং",
-    deliveryText: "আমরা সারা বাংলাদেশে ডেলিভারি করি। আপনার এলাকার ডেলিভারি চার্জ জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন।",
-    contactEyebrow: "যোগাযোগ করুন",
-    contactTitle: "কথা বলুন আমাদের সাথে",
-    contactText: "পণ্য বা পাইকারি অর্ডার সম্পর্কে কোনো প্রশ্ন আছে? সরাসরি আমাদের সাথে যোগাযোগ করুন!",
-    emailLabel: "ইমেইল",
-    phoneLabel: "ফোন / হোয়াটসঅ্যাপ",
-    messageUs: "হোয়াটসঅ্যাপে মেসেজ করুন",
-    footerNote: "KinzoraBD-এর অফিশিয়াল স্টোরফ্রন্ট।",
-    orderOnWhatsApp: "হোয়াটসঅ্যাপে অর্ডার করুন",
-    currency: "টাকা "
-  }
-};
-
-let currentLang = 'en';
-
-// --- DOM ELEMENTS ---
-const searchInput = document.getElementById('searchInput');
-const productGrid = document.getElementById('productGrid');
-const emptyState = document.getElementById('emptyState');
-const categoryFilters = document.getElementById('categoryFilters');
-const languageToggle = document.getElementById('languageToggle');
-const yearSpan = document.getElementById('year');
-const emailDisplay = document.getElementById('emailDisplay');
-const phoneDisplay = document.getElementById('phoneDisplay');
-const generalWhatsApp = document.getElementById('generalWhatsApp');
-
-let activeCategory = 'all';
-let searchQuery = '';
-
-// --- INITIALIZE APP ---
-document.addEventListener('DOMContentLoaded', () => {
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-  if (emailDisplay) emailDisplay.textContent = CONTACT_EMAIL;
-  if (phoneDisplay) phoneDisplay.textContent = CONTACT_PHONE;
-  
-  updateWhatsAppLinks();
-  renderProducts();
-  setupEventListeners();
-});
-
-// --- RENDER PRODUCTS ---
-function renderProducts() {
-  productGrid.innerHTML = '';
-
-  const filtered = PRODUCTS.filter(prod => {
-    const matchesCategory = activeCategory === 'all' || prod.category === activeCategory;
-    const q = searchQuery.toLowerCase();
-    const matchesSearch = prod.name.toLowerCase().includes(q) || prod.banglaName.toLowerCase().includes(q);
-    return matchesCategory && matchesSearch;
-  });
-
-  if (filtered.length === 0) {
-    emptyState.hidden = false;
-    return;
-  }
-  emptyState.hidden = true;
-
-  filtered.forEach(prod => {
-    const card = document.createElement('article');
-    card.className = 'product-card';
-
-    const displayName = currentLang === 'bn' ? prod.banglaName : prod.name;
-    const currencyText = translations[currentLang].currency;
-    const btnText = translations[currentLang].orderOnWhatsApp;
-
-    const whatsappMessage = encodeURIComponent(`Hello KinzoraBD, I want to order this product:\nName: ${prod.name} (${prod.banglaName})\nPrice: ${prod.price} Tk`);
-    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
-
-    card.innerHTML = `
-      <div class="product-image" style="--product-bg: ${prod.packColor}">
-        <span class="sample-label">${prod.label}</span>
-        <div class="pack ${prod.packType}" style="--pack-color: ${prod.packColor}"><span>KB</span></div>
-      </div>
-      <div class="product-info">
-        <span class="product-category">${prod.category}</span>
-        <h3>${displayName}</h3>
-        <p>${prod.description}</p>
-        <div class="product-bottom">
-          <span class="product-price">${currencyText}${prod.price}</span>
-        </div>
-        <a class="order-button" href="${whatsappLink}" target="_blank" rel="noopener">${btnText}</a>
-      </div>
-    `;
-    productGrid.appendChild(card);
-  });
+/* --- KINZORABD MAIN STYLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-// --- EVENT LISTENERS SETUP ---
-function setupEventListeners() {
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderProducts();
-    });
-  }
-
-  if (categoryFilters) {
-    categoryFilters.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-button');
-      if (!btn) return;
-      categoryFilters.querySelectorAll('.filter-button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCategory = btn.getAttribute('data-category');
-      renderProducts();
-    });
-  }
-
-  if (languageToggle) {
-    languageToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'bn' : 'en';
-      languageToggle.textContent = currentLang === 'en' ? 'বাংলা' : 'English';
-      updateTexts();
-      renderProducts();
-    });
-  }
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
 }
 
-// --- UPDATE UI TEXTS FOR LANGUAGE ---
-function updateTexts() {
-  const t = translations[currentLang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.textContent = t[key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.placeholder = t[key];
-  });
+header {
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-// --- UPDATE WHATSAPP LINKS ---
-function updateWhatsAppLinks() {
-  const generalMsg = encodeURIComponent("Hello KinzoraBD, I want to know more about your products and services.");
-  if (generalWhatsApp) {
-    generalWhatsApp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${generalMsg}`;
-  }
-  }
-  
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image {
+  height: 180px;
+  background-color: var(--product-bg, #e6eee2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5srem;
+  flex-grow: 1;
+}
+
+.order-button {
+  display: block;
+  text-align: center;
+  background-color: #25d366;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.order-button:hover {
+  background-color: #128c7e;
+}
