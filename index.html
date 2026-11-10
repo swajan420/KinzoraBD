@@ -4,20 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#146c5a">
-  <meta name="description" content="KinboShop online shop — sample storefront.">
-  <title>KinboShop | Online Shop</title>
+  <meta name="description" content="KinzoraBD online shop — official storefront.">
+  <title>KinzoraBD | Online Shop</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-
-  
 <body>
-  <div class="announcement" data-i18n="announcement">Sample storefront — product names, photos and prices are examples.</div>
+  <div class="announcement" data-i18n="announcement">Welcome to KinzoraBD — Explore our wide range of products!</div>
 
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="KinboShop home">
-      <span class="brand-mark">IE</span>
-      <span class="brand-copy"><strong>KinboShop</strong><small data-i18n="tagline">Everyday care, made simple</small></span>
+    <a class="brand" href="#home" aria-label="KinzoraBD home">
+      <span class="brand-mark">KB</span>
+      <span class="brand-copy"><strong>KinzoraBD</strong><small data-i18n="tagline">Quality products, right at your doorstep</small></span>
     </a>
     <div class="header-actions">
       <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">বাংলা</button>
@@ -25,112 +23,97 @@
     </div>
   </header>
 
-  
-
   <main>
     <section id="home" class="hero">
       <div class="hero-content">
-        <span class="eyebrow" data-i18n="heroEyebrow">WELCOME TO OUR ONLINE SHOP</span>
-        <h1 data-i18n="heroTitle">A little care goes a long way.</h1>
-        <p data-i18n="heroText">Explore our sample skincare collection. Message us to ask about products and delivery.</p>
+        <span class="eyebrow" data-i18n="heroEyebrow">WELCOME TO OUR STORE</span>
+        <h1 data-i18n="heroTitle">Everything you need, all in one place.</h1>
+        <p data-i18n="heroText">Explore our multi-category product collection. Message us on WhatsApp to order directly.</p>
         <a class="primary-button" href="#products" data-i18n="shopNow">Explore products <span aria-hidden="true">→</span></a>
-        <p class="hero-note" data-i18n="sampleNote">Demo website: replace sample products and prices before publishing.</p>
       </div>
-      <div class="hero-art" role="img" aria-label="Skincare products illustration">
+      <div class="hero-art" role="img" aria-label="KinzoraBD shop illustration">
         <div class="sun"></div>
         <div class="plant plant-one"></div><div class="plant plant-two"></div>
-        <div class="product-jar jar-one"><span>CARE</span></div>
-        <div class="product-jar jar-two"><span>GLOW</span></div>
-        <div class="product-bottle"><span>daily<br>cleanse</span></div>
+        <div class="product-jar jar-one"><span>SHOP</span></div>
+        <div class="product-jar jar-two"><span>BEST</span></div>
+        <div class="product-bottle"><span>Kinzora<br>BD</span></div>
         <div class="hero-leaf leaf-one"></div><div class="hero-leaf leaf-two"></div>
       </div>
     </section>
 
-    
-
     <section class="trust-row" aria-label="Store information">
-      <div><span class="trust-icon">✓</span><span data-i18n="trustOne">Friendly service</span></div>
-      <div><span class="trust-icon">♡</span><span data-i18n="trustTwo">Carefully selected items</span></div>
-      <div><span class="trust-icon">↗</span><span data-i18n="trustThree">Order by WhatsApp</span></div>
+      <div><span class="trust-icon">✓</span><span data-i18n="trustOne">100% Genuine Products</span></div>
+      <div><span class="trust-icon">♡</span><span data-i18n="trustTwo">Fast & Reliable Delivery</span></div>
+      <div><span class="trust-icon">↗</span><span data-i18n="trustThree">Easy WhatsApp Order</span></div>
     </section>
-
-    
 
     <section id="products" class="products-section">
       <div class="section-heading">
         <div>
-          <span class="eyebrow" data-i18n="collectionEyebrow">THE COLLECTION</span>
-          <h2 data-i18n="productsTitle">Shop our products</h2>
-          <p data-i18n="productsIntro">These are demonstration products. Confirm real prices and availability with the seller.</p>
+          <span class="eyebrow" data-i18n="collectionEyebrow">OUR PRODUCTS</span>
+          <h2 data-i18n="productsTitle">Shop by Categories</h2>
+          <p data-i18n="productsIntro">Browse through our quality product catalog and find what you need.</p>
         </div>
       </div>
 
-      
       <div class="shop-controls">
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
           <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search products..." autocomplete="off">
         </label>
+        
+        <!-- Updated Categories for All Product Types -->
         <div id="categoryFilters" class="category-filters" aria-label="Filter products">
-          <button class="filter-button active" type="button" data-category="all" data-i18n="allProducts">All</button>
-          <button class="filter-button" type="button" data-category="cleanser" data-i18n="cleanser">Cleansers</button>
-          <button class="filter-button" type="button" data-category="moisturizer" data-i18n="moisturizer">Moisturizers</button>
-          <button class="filter-button" type="button" data-category="sunscreen" data-i18n="sunscreen">Sunscreen</button>
+          <button class="filter-button active" type="button" data-category="all" data-i18n="allProducts">All Products</button>
+          <button class="filter-button" type="button" data-category="electronics" data-i18n="electronics">Electronics</button>
+          <button class="filter-button" type="button" data-category="fashion" data-i18n="fashion">Fashion</button>
+          <button class="filter-button" type="button" data-category="home" data-i18n="homeLiving">Home & Living</button>
+          <button class="filter-button" type="button" data-category="healthcare" data-i18n="healthCare">Health & Care</button>
+          <button class="filter-button" type="button" data-category="groceries" data-i18n="groceries">Groceries</button>
         </div>
       </div>
 
-      
       <div id="productGrid" class="product-grid" aria-live="polite"></div>
-      <p id="emptyState" class="empty-state" hidden data-i18n="noProducts">No products match your search. Try another word.</p>
+      <p id="emptyState" class="empty-state" hidden data-i18n="noProducts">No products match your search. Try another term.</p>
     </section>
-
-    
 
     <section id="about" class="about-section">
-      <div class="about-badge">IE</div>
+      <div class="about-badge">KB</div>
       <div>
-        <span class="eyebrow" data-i18n="aboutEyebrow">A LITTLE ABOUT US</span>
-        <h2 data-i18n="aboutTitle">Welcome to KinboShop</h2>
-        <p data-i18n="aboutText">We’re building a simple and helpful online shopping experience. Contact us to confirm product details, current stock, and delivery options before ordering.</p>
+        <span class="eyebrow" data-i18n="aboutEyebrow">ABOUT US</span>
+        <h2 data-i18n="aboutTitle">Welcome to KinzoraBD</h2>
+        <p data-i18n="aboutText">We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.</p>
       </div>
     </section>
-
-
-    
 
     <section id="delivery" class="delivery-section">
       <div class="delivery-icon">📦</div>
       <div>
-        <span class="eyebrow" data-i18n="deliveryEyebrow">DELIVERY INFORMATION</span>
-        <h2 data-i18n="deliveryTitle">Delivery made clear</h2>
-        <p data-i18n="deliveryText">Delivery coverage, charges and estimated time are not set on this demo site. Please ask us on WhatsApp before confirming an order.</p>
+        <span class="eyebrow" data-i18n="deliveryEyebrow">DELIVERY DETAILS</span>
+        <h2 data-i18n="deliveryTitle">Nationwide Shipping</h2>
+        <p data-i18n="deliveryText">We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.</p>
       </div>
     </section>
 
     <section id="contact" class="contact-section">
       <div>
-        <span class="eyebrow" data-i18n="contactEyebrow">WE’RE HERE TO HELP</span>
-        <h2 data-i18n="contactTitle">Let’s talk</h2>
-        <p data-i18n="contactText">Have a question about a product? Send us a message and we’ll help you with the details.</p>
+        <span class="eyebrow" data-i18n="contactEyebrow">CONTACT US</span>
+        <h2 data-i18n="contactTitle">Get in Touch</h2>
+        <p data-i18n="contactText">Have questions about a product or bulk orders? Reach out to us directly!</p>
       </div>
       <div class="contact-card">
-        <div class="contact-line"><span class="contact-icon">✉</span><div><small data-i18n="emailLabel">Email</small><strong id="emailDisplay">your-email@example.com</strong></div></div>
+        <div class="contact-line"><span class="contact-icon">✉</span><div><small data-i18n="emailLabel">Email</small><strong id="emailDisplay">support@kinzorabd.com</strong></div></div>
         <div class="contact-line"><span class="contact-icon">☎</span><div><small data-i18n="phoneLabel">Phone / WhatsApp</small><strong id="phoneDisplay">Add your number in script.js</strong></div></div>
         <a id="generalWhatsApp" class="primary-button full-button" href="#" target="_blank" rel="noopener" data-i18n="messageUs">Message us on WhatsApp</a>
       </div>
     </section>
   </main>
 
-
-  
   <footer class="site-footer">
-    <a class="brand footer-brand" href="#home"><span class="brand-mark">IE</span><span class="brand-copy"><strong>KinboShop</strong><small data-i18n="tagline">Everyday care, made simple</small></span></a>
-    <p data-i18n="footerNote">Sample storefront for demonstration. Verify all product details before selling.</p>
-    <p>© <span id="year"></span> KinboShop</p>
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">KB</span><span class="brand-copy"><strong>KinzoraBD</strong><small data-i18n="tagline">Quality products, right at your doorstep</small></span></a>
+    <p data-i18n="footerNote">Official storefront for KinzoraBD.</p>
+    <p>© <span id="year"></span> KinzoraBD. All rights reserved.</p>
   </footer>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
