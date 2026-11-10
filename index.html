@@ -1,119 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#146c5a">
-  <meta name="description" content="KinzoraBD online shop — official storefront.">
-  <title>KinzoraBD | Online Shop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KinzoraBD | Online Store</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="announcement" data-i18n="announcement">Welcome to KinzoraBD — Explore our wide range of products!</div>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="KinzoraBD home">
-      <span class="brand-mark">KB</span>
-      <span class="brand-copy"><strong>KinzoraBD</strong><small data-i18n="tagline">Quality products, right at your doorstep</small></span>
-    </a>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" data-i18n="announcement">
+    Welcome to KinzoraBD — Explore our wide range of products!
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <h1>KB KinzoraBD</h1>
+    </div>
     <div class="header-actions">
-      <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">বাংলা</button>
-      <a class="header-contact" href="#contact" data-i18n="contactUs">Contact us</a>
+      <button id="languageToggle" class="language-btn">বাংলা</button>
+      <a href="#contact" class="contact-btn" data-i18n="contactUs">Contact us</a>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <span class="eyebrow" data-i18n="heroEyebrow">WELCOME TO OUR STORE</span>
-        <h1 data-i18n="heroTitle">Everything you need, all in one place.</h1>
-        <p data-i18n="heroText">Explore our multi-category product collection. Message us on WhatsApp to order directly.</p>
-        <a class="primary-button" href="#products" data-i18n="shopNow">Explore products <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="hero-art" role="img" aria-label="KinzoraBD shop illustration">
-        <div class="sun"></div>
-        <div class="plant plant-one"></div><div class="plant plant-two"></div>
-        <div class="product-jar jar-one"><span>SHOP</span></div>
-        <div class="product-jar jar-two"><span>BEST</span></div>
-        <div class="product-bottle"><span>Kinzora<br>BD</span></div>
-        <div class="hero-leaf leaf-one"></div><div class="hero-leaf leaf-two"></div>
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <span style="font-size: 0.85rem; font-weight: bold; color: #0f766e; text-transform: uppercase;" data-i18n="heroEyebrow">WELCOME TO OUR STORE</span>
+      <h2 data-i18n="heroTitle">Everything you need, all in one place.</h2>
+      <p data-i18n="heroText">Explore our multi-category product collection. Message us on WhatsApp to order directly.</p>
+      <a href="#shop" style="color: #0f766e; font-weight: bold; text-decoration: underline;" data-i18n="shopNow">Explore products →</a>
+    </section>
+
+    <!-- Search & Filters -->
+    <section id="shop" class="search-filter-area">
+      <input type="text" id="searchInput" placeholder="Search products..." data-i18n-placeholder="searchPlaceholder">
+      
+      <div class="category-filters" id="categoryFilters">
+        <button class="filter-button active" data-category="all" data-i18n="allProducts">All Products</button>
+        <button class="filter-button" data-category="electronics" data-i18n="electronics">Electronics</button>
+        <button class="filter-button" data-category="fashion" data-i18n="fashion">Fashion</button>
+        <button class="filter-button" data-category="home" data-i18n="homeLiving">Home & Living</button>
+        <button class="filter-button" data-category="healthcare" data-i18n="healthCare">Health & Care</button>
+        <button class="filter-button" data-category="groceries" data-i18n="groceries">Groceries</button>
       </div>
     </section>
 
-    <section class="trust-row" aria-label="Store information">
-      <div><span class="trust-icon">✓</span><span data-i18n="trustOne">100% Genuine Products</span></div>
-      <div><span class="trust-icon">♡</span><span data-i18n="trustTwo">Fast & Reliable Delivery</span></div>
-      <div><span class="trust-icon">↗</span><span data-i18n="trustThree">Easy WhatsApp Order</span></div>
-    </section>
-
-    <section id="products" class="products-section">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow" data-i18n="collectionEyebrow">OUR PRODUCTS</span>
-          <h2 data-i18n="productsTitle">Shop by Categories</h2>
-          <p data-i18n="productsIntro">Browse through our quality product catalog and find what you need.</p>
-        </div>
+    <!-- Product Grid -->
+    <section>
+      <div style="margin-bottom: 1rem;">
+        <span style="font-size: 0.8rem; font-weight: bold; color: #0f766e;" data-i18n="collectionEyebrow">OUR PRODUCTS</span>
+        <h3 style="font-size: 1.5rem;" data-i18n="productsTitle">Shop by Categories</h3>
+        <p style="color: #6b7280; font-size: 0.9rem;" data-i18n="productsIntro">Browse through our quality product catalog and find what you need.</p>
       </div>
 
-      <div class="shop-controls">
-        <label class="search-box">
-          <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search products..." autocomplete="off">
-        </label>
-        
-        <!-- Updated Categories for All Product Types -->
-        <div id="categoryFilters" class="category-filters" aria-label="Filter products">
-          <button class="filter-button active" type="button" data-category="all" data-i18n="allProducts">All Products</button>
-          <button class="filter-button" type="button" data-category="electronics" data-i18n="electronics">Electronics</button>
-          <button class="filter-button" type="button" data-category="fashion" data-i18n="fashion">Fashion</button>
-          <button class="filter-button" type="button" data-category="home" data-i18n="homeLiving">Home & Living</button>
-          <button class="filter-button" type="button" data-category="healthcare" data-i18n="healthCare">Health & Care</button>
-          <button class="filter-button" type="button" data-category="groceries" data-i18n="groceries">Groceries</button>
-        </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Products will be loaded via script.js -->
       </div>
 
-      <div id="productGrid" class="product-grid" aria-live="polite"></div>
-      <p id="emptyState" class="empty-state" hidden data-i18n="noProducts">No products match your search. Try another term.</p>
-    </section>
-
-    <section id="about" class="about-section">
-      <div class="about-badge">KB</div>
-      <div>
-        <span class="eyebrow" data-i18n="aboutEyebrow">ABOUT US</span>
-        <h2 data-i18n="aboutTitle">Welcome to KinzoraBD</h2>
-        <p data-i18n="aboutText">We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.</p>
+      <div id="emptyState" hidden style="text-align: center; padding: 3rem; color: #6b7280;">
+        <p data-i18n="noProducts">No products match your search. Try another term.</p>
       </div>
     </section>
 
-    <section id="delivery" class="delivery-section">
-      <div class="delivery-icon">📦</div>
-      <div>
-        <span class="eyebrow" data-i18n="deliveryEyebrow">DELIVERY DETAILS</span>
-        <h2 data-i18n="deliveryTitle">Nationwide Shipping</h2>
-        <p data-i18n="deliveryText">We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.</p>
+    <!-- Info Sections -->
+    <div class="info-sections">
+      <div class="info-box">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="aboutEyebrow">ABOUT US</span>
+        <h3 data-i18n="aboutTitle">Welcome to KinzoraBD</h3>
+        <p style="font-size: 0.9rem; color: #6b7280;" data-i18n="aboutText">We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.</p>
       </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-      <div>
-        <span class="eyebrow" data-i18n="contactEyebrow">CONTACT US</span>
-        <h2 data-i18n="contactTitle">Get in Touch</h2>
-        <p data-i18n="contactText">Have questions about a product or bulk orders? Reach out to us directly!</p>
+      <div class="info-box">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="deliveryEyebrow">DELIVERY DETAILS</span>
+        <h3 data-i18n="deliveryTitle">Nationwide Shipping</h3>
+        <p style="font-size: 0.9rem; color: #6b7280;" data-i18n="deliveryText">We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.</p>
       </div>
-      <div class="contact-card">
-        <div class="contact-line"><span class="contact-icon">✉</span><div><small data-i18n="emailLabel">Email</small><strong id="emailDisplay">support@kinzorabd.com</strong></div></div>
-        <div class="contact-line"><span class="contact-icon">☎</span><div><small data-i18n="phoneLabel">Phone / WhatsApp</small><strong id="phoneDisplay">Add your number in script.js</strong></div></div>
-        <a id="generalWhatsApp" class="primary-button full-button" href="#" target="_blank" rel="noopener" data-i18n="messageUs">Message us on WhatsApp</a>
+
+      <div class="info-box" id="contact">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="contactEyebrow">CONTACT US</span>
+        <h3 data-i18n="contactTitle">Get in Touch</h3>
+        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem;" data-i18n="contactText">Have questions about a product or bulk orders? Reach out to us directly!</p>
+        <p style="font-size: 0.9rem;"><strong>Email:</strong> <span id="emailDisplay"></span></p>
+        <p style="font-size: 0.9rem;"><strong>Phone:</strong> <span id="phoneDisplay"></span></p>
+        <a id="generalWhatsApp" href="#" target="_blank" rel="noopener" style="display: inline-block; margin-top: 0.75rem; color: #059669; font-weight: bold; text-decoration: underline;" data-i18n="messageUs">Message us on WhatsApp</a>
       </div>
-    </section>
+    </div>
+
   </main>
 
-  <footer class="site-footer">
-    <a class="brand footer-brand" href="#home"><span class="brand-mark">KB</span><span class="brand-copy"><strong>KinzoraBD</strong><small data-i18n="tagline">Quality products, right at your doorstep</small></span></a>
-    <p data-i18n="footerNote">Official storefront for KinzoraBD.</p>
-    <p>© <span id="year"></span> KinzoraBD. All rights reserved.</p>
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footerNote">Official storefront for KinzoraBD. Verify all product details before ordering.</p>
+    <p style="margin-top: 0.5rem;">© <span id="year"></span> KinzoraBD. All rights reserved.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
