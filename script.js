@@ -1,13 +1,8 @@
 /*
   KinzoraBD — MULTI-CATEGORY STORE
-  1) Change WHATSAPP_NUMBER below to your number with country code.
-     Bangladesh example format: 8801912420580 (no +, spaces or dashes).
-  2) Replace sample products, descriptions and prices in PRODUCTS.
-  3) Update CONTACT_EMAIL and CONTACT_PHONE.
-  This is a static demo: it does not save orders to a database or process payments.
 */
 
-const WHATSAPP_NUMBER = "8801912420580"; // আপনার আসল WhatsApp নম্বর দিন
+const WHATSAPP_NUMBER = "8801912420580"; 
 const CONTACT_EMAIL = "support@kinzorabd.com"; 
 const CONTACT_PHONE = "01912420580"; 
 
@@ -170,16 +165,6 @@ function renderProducts() {
   }).join("");
 
   emptyState.hidden = shown.length > 0;
-  productGrid.querySelectorAll("[data-order-id]").forEach(link => {
-    if (!whatsappReady()) {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        alert(currentLanguage === "bn"
-          ? "script.js ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর দিন।"
-          : "Add your WhatsApp number to WHATSAPP_NUMBER in script.js.");
-      });
-    }
-  });
 }
 
 function escapeHTML(value) {
@@ -213,24 +198,23 @@ document.getElementById("categoryFilters").addEventListener("click", event => {
   renderProducts();
 });
 
-searchInput.addEventListener("input", renderProducts);
-languageToggle.addEventListener("click", () => setLanguage(currentLanguage === "en" ? "bn" : "en"));
+if (searchInput) searchInput.addEventListener("input", renderProducts);
+if (languageToggle) languageToggle.addEventListener("click", () => setLanguage(currentLanguage === "en" ? "bn" : "en"));
 
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("emailDisplay").textContent = CONTACT_EMAIL;
-document.getElementById("phoneDisplay").textContent = CONTACT_PHONE;
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+const emailEl = document.getElementById("emailDisplay");
+if (emailEl) emailEl.textContent = CONTACT_EMAIL;
+
+const phoneEl = document.getElementById("phoneDisplay");
+if (phoneEl) phoneEl.textContent = CONTACT_PHONE;
+
 const generalWhatsApp = document.getElementById("generalWhatsApp");
-generalWhatsApp.href = makeWhatsAppLink(currentLanguage === "bn"
-  ? "আসসালামু আলাইকুম KinzoraBD! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
-  : "Hello KinzoraBD! I'd like to ask about your products and delivery.");
-if (!whatsappReady()) {
-  generalWhatsApp.addEventListener("click", event => {
-    event.preventDefault();
-    alert(currentLanguage === "bn"
-      ? "script.js ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর দিন।"
-      : "Add your WhatsApp number to WHATSAPP_NUMBER in script.js first.");
-  });
+if (generalWhatsApp) {
+  generalWhatsApp.href = makeWhatsAppLink(currentLanguage === "bn"
+    ? "আসসালামু আলাইকুম KinzoraBD! পণ্য ও ডেলিভারি সম্পর্কে জানতে চাই।"
+    : "Hello KinzoraBD! I'd like to ask about your products and delivery.");
 }
 
 renderProducts();
-      
