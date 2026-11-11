@@ -3,7 +3,7 @@
 */
 
 const WHATSAPP_NUMBER = "8801912420580"; 
-const CONTACT_EMAIL = "support@kinzorabd.com"; 
+const CONTACT_EMAIL = "admin@kinzorabd.com"; 
 const CONTACT_PHONE = "01912420580"; 
 
 const PRODUCTS = [
