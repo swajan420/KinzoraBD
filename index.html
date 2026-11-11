@@ -1,90 +1,146 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KinzoraBD | Online Store</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KinzoraBD | Online Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* লোগো সঠিক মাপে রাখার জন্য অতিরিক্ত ইনলাইন স্টাইল */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .site-logo {
+      max-height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #0f766e;
+      margin: 0;
+    }
+    /* ফুটার সোশ্যাল লিংক স্টাইল */
+    .footer-social-links {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .footer-social-links a {
+      color: #059669;
+      text-decoration: underline;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo-container">
-            <!-- আপনার লোগো ফাইল logo.png এখানে যুক্ত করা হলো -->
-            <img src="logo.png" alt="KinzoraBD Logo" class="site-logo">
-            <span class="brand-name">KinzoraBD</span>
-        </div>
-        <nav>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Contact Us</a>
-        </nav>
-    </header>
 
+  <!-- Announcement Bar -->
+  <div class="announcement-bar" data-i18n="announcement">
+    Welcome to KinzoraBD — Explore our wide range of products!
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <!-- আপনার লোগো ফাইল logo.png এবং নাম -->
+      <img src="logo.png" alt="KinzoraBD Logo" class="site-logo">
+      <h1 class="brand-title">KinzoraBD</h1>
+    </div>
+    <div class="header-actions">
+      <button id="languageToggle" class="language-btn">বাংলা</button>
+      <a href="#contact" class="contact-btn" data-i18n="contactUs">Contact us</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>Everything you need, all in one place.</h1>
-        <p>Explore our multi-category product collection. Message us on WhatsApp to order directly.</p>
-        <a href="https://wa.me/8801912420580?text=Hello%20KinzoraBD,%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" class="whatsapp-btn">Explore products on WhatsApp</a>
+    <section class="hero-section">
+      <span style="font-size: 0.85rem; font-weight: bold; color: #0f766e; text-transform: uppercase;" data-i18n="heroEyebrow">WELCOME TO OUR STORE</span>
+      <h2 data-i18n="heroTitle">Everything you need, all in one place.</h2>
+      <p data-i18n="heroText">Explore our multi-category product collection. Message us on WhatsApp to order directly.</p>
+      <a href="#shop" style="color: #0f766e; font-weight: bold; text-decoration: underline;" data-i18n="shopNow">Explore products →</a>
     </section>
 
-    <!-- Main Shop Section -->
-    <main id="shop">
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search products...">
-        </div>
+    <!-- Search & Filters -->
+    <section id="shop" class="search-filter-area">
+      <input type="text" id="searchInput" placeholder="Search products..." data-i18n-placeholder="searchPlaceholder">
+      
+      <div class="category-filters" id="categoryFilters">
+        <button class="filter-button active" data-category="all" data-i18n="allProducts">All Products</button>
+        <button class="filter-button" data-category="electronics" data-i18n="electronics">Electronics</button>
+        <button class="filter-button" data-category="fashion" data-i18n="fashion">Fashion</button>
+        <button class="filter-button" data-category="home" data-i18n="homeLiving">Home & Living</button>
+        <button class="filter-button" data-category="healthcare" data-i18n="healthCare">Health & Care</button>
+        <button class="filter-button" data-category="groceries" data-i18n="groceries">Groceries</button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section>
+      <div style="margin-bottom: 1rem;">
+        <span style="font-size: 0.8rem; font-weight: bold; color: #0f766e;" data-i18n="collectionEyebrow">OUR PRODUCTS</span>
+        <h3 style="font-size: 1.5rem;" data-i18n="productsTitle">Shop by Categories</h3>
+        <p style="color: #6b7280; font-size: 0.9rem;" data-i18n="productsIntro">Browse through our quality product catalog and find what you need.</p>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Products will be loaded via script.js -->
+      </div>
+
+      <div id="emptyState" hidden style="text-align: center; padding: 3rem; color: #6b7280;">
+        <p data-i18n="noProducts">No products match your search. Try another term.</p>
+      </div>
+    </section>
+
+    <!-- Info Sections -->
+    <div class="info-sections">
+      <div class="info-box">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="aboutEyebrow">ABOUT US</span>
+        <h3 data-i18n="aboutTitle">Welcome to KinzoraBD</h3>
+        <p style="font-size: 0.9rem; color: #6b7280;" data-i18n="aboutText">We are committed to providing top-quality products across multiple categories with convenient shopping and quick customer support.</p>
+      </div>
+
+      <div class="info-box">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="deliveryEyebrow">DELIVERY DETAILS</span>
+        <h3 data-i18n="deliveryTitle">Nationwide Shipping</h3>
+        <p style="font-size: 0.9rem; color: #6b7280;" data-i18n="deliveryText">We deliver across Bangladesh. Contact us on WhatsApp for exact delivery charges and estimated arrival times for your location.</p>
+      </div>
+
+      <div class="info-box" id="contact">
+        <span style="font-size: 0.75rem; font-weight: bold; color: #0f766e;" data-i18n="contactEyebrow">CONTACT US</span>
+        <h3 data-i18n="contactTitle">Get in Touch</h3>
+        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem;" data-i18n="contactText">Have questions about a product or bulk orders? Reach out to us directly!</p>
         
-        <!-- Category Filters -->
-        <div class="categories">
-            <button class="filter-btn active" data-category="all">All Products</button>
-            <button class="filter-btn" data-category="electronics">Electronics</button>
-            <button class="filter-btn" data-category="fashion">Fashion</button>
-            <button class="filter-btn" data-category="home">Home & Living</button>
+        <!-- প্রফেশনাল ইমেইল -->
+        <p style="font-size: 0.9rem;"><strong>Email:</strong> <span id="emailDisplay">admin@kinzorabd.com</span></p>
+        
+        <!-- হোয়াটসঅ্যাপ / ফোন নম্বর -->
+        <p style="font-size: 0.9rem;"><strong>Phone / WhatsApp:</strong> <span id="phoneDisplay">+8801912420580</span></p>
+        
+        <!-- ডাইরেক্ট হোয়াটসঅ্যাপ চ্যাট লিংক -->
+        <a id="generalWhatsApp" href="https://wa.me/8801912420580" target="_blank" rel="noopener" style="display: inline-block; margin-top: 0.75rem; color: #059669; font-weight: bold; text-decoration: underline;" data-i18n="messageUs">Message us on WhatsApp</a>
+        
+        <!-- সোশ্যাল মিডিয়া পেজ লিংকসমূহ -->
+        <div class="footer-social-links">
+          <a href="https://facebook.com/kinzorabd" target="_blank">Facebook Page</a> | 
+          <a href="https://instagram.com/kinzorabd" target="_blank">Instagram Page</a>
         </div>
+      </div>
+    </div>
 
-        <h2 class="section-title">Shop by Categories</h2>
-        <p class="section-subtitle">Browse through our high-quality catalog and find what you need.</p>
+  </main>
 
-        <!-- Product Cards Container -->
-        <div class="product-grid" id="productGrid">
-            <!-- Products will be dynamically loaded or listed here -->
-        </div>
-    </main>
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footerNote">Official storefront for KinzoraBD. Verify all product details before ordering.</p>
+    <p style="margin-top: 0.5rem;">© <span id="year"></span> KinzoraBD. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer / Contact Section -->
-    <footer id="contact">
-        <div class="footer-section">
-            <h3>About Us</h3>
-            <p><strong>Welcome to KinzoraBD</strong></p>
-            <p>We are committed to providing top-quality products, diverse product categories, with customized shopping and quick customer support.</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Nationwide Shipping</h3>
-            <p>We deliver across Bangladesh. Contact us on WhatsApp for more delivery charges and intermediate and remote areas for your location.</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Get In Touch</h3>
-            <p>Have questions about a product or bulk orders? Reach out to us directly!</p>
-            <!-- প্রফেশনাল ইমেইল আপডেট করা হলো -->
-            <p><strong>Email:</strong> admin@kinzorabd.com</p>
-            <!-- অফিশিয়াল হোয়াটসঅ্যাপ নম্বর আপডেট করা হলো -->
-            <p><strong>Phone / WhatsApp:</strong> +8801912420580</p>
-            <p><a href="https://wa.me/8801912420580" target="_blank" class="footer-wa-link">Message us on WhatsApp</a></p>
-        </div>
-
-        <div class="social-links">
-            <!-- আপনার ফেসবুক ও ইনস্টাগ্রাম পেজের লিংক এখানে যুক্ত করে দিন -->
-            <a href="https://facebook.com/kinzorabd" target="_blank">Facebook Page</a> | 
-            <a href="https://instagram.com/kinzorabd" target="_blank">Instagram Page</a>
-        </div>
-
-        <div class="footer-bottom">
-            <p>Official storefront for KinzoraBD - Verify all product details before ordering.</p>
-            <p>&copy; 2026 KinzoraBD. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
