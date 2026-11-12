@@ -1,13 +1,5 @@
-
 {
   "name": "KinzoraBD Laravel",
-  "image": "mcr.microsoft.com/devcontainers/php:1-8.3-bookworm",
-  "features": {
-    "ghcr.io/devcontainers/features/composer:2": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
-    }
-  },
+  "image": "mcr.microsoft.com/devcontainers/php:8.3",
   "forwardPorts": [8000]
 }
-
